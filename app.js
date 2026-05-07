@@ -63,6 +63,7 @@ function renderResults() {
         if (filtro === 'con' && t.tipo !== 'con') return false;
         if (t.minImp !== undefined && importe < t.minImp) return false;
         if (t.maxImp !== undefined && importe > t.maxImp) return false;
+        if (t.costeCl !== 0) return false;  // ← solo coste clínica 0%
         return true;
     });
 
