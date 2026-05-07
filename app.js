@@ -131,14 +131,14 @@ function renderResults() {
 
         const costeClienteStat = r.aperturaEur > 0
             ? `<div class="stat">
-           <span class="stat-label">Coste cliente (apertura)</span>
+           <span class="stat-label">Coste paciente (Apertura)</span>
            <span class="stat-value highlight-good">${fmt(r.aperturaEur)} (${fmtPct(r.comAp)})</span>
        </div>`
             : '';
 
         const interesesStat = r.tin > 0
             ? `<div class="stat">
-               <span class="stat-label">Intereses totales</span>
+               <span class="stat-label">Costo paciente (Intereses)</span>
                <span class="stat-value highlight-good">${fmt(r.interesesTotal)}</span>
              </div>`
             : '';
