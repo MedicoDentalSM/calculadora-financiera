@@ -14,12 +14,9 @@
     <div class="app">
         <header class="header">
             <div class="header-logo">
-                <svg class="logo-svg" aria-label="Logo financiación dental" width="32" height="32" viewBox="0 0 32 32"
-                    fill="none">
+                <svg class="logo-svg" aria-label="Logo financiación dental" width="32" height="32" viewBox="0 0 32 32" fill="none">
                     <rect x="2" y="2" width="28" height="28" rx="8" fill="currentColor" opacity=".12" />
-                    <path
-                        d="M10 8c-1.5 0-3 1-3 3 0 4 2 7 4 9l1 6h8l1-6c2-2 4-5 4-9 0-2-1.5-3-3-3-1 0-2 .5-2.5 1.5-.3.7-1.2.7-1.5 0C18.5 8.5 17.5 8 16 8c-1.5 0-2.5.5-3 1.5-.3.7-1.2.7-1.5 0C11 8.5 10.5 8 10 8z"
-                        fill="currentColor" />
+                    <path d="M10 8c-1.5 0-3 1-3 3 0 4 2 7 4 9l1 6h8l1-6c2-2 4-5 4-9 0-2-1.5-3-3-3-1 0-2 .5-2.5 1.5-.3.7-1.2.7-1.5 0C18.5 8.5 17.5 8 16 8c-1.5 0-2.5.5-3 1.5-.3.7-1.2.7-1.5 0C11 8.5 10.5 8 10 8z" fill="currentColor" />
                     <path d="M13 19h6M13 22h6" stroke="white" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
                 <div>
@@ -42,37 +39,42 @@
                         <label class="input-label" for="importe">Importe del tratamiento</label>
                         <div class="input-wrap">
                             <span class="input-prefix">€</span>
-                            <input class="input-field" id="importe" type="number" min="90" max="30000" step="50"
-                                value="3000" placeholder="0">
+                            <input class="input-field" id="importe" type="number" min="90" max="30000" step="50" value="3000" placeholder="0">
                         </div>
                         <span class="input-hint">Entre 90 € y 30.000 €</span>
                     </div>
                     <div class="input-group">
                         <label class="input-label" for="cuotas">Número de cuotas</label>
                         <div class="input-wrap">
-                            <input class="input-field no-prefix" id="cuotas" type="number" min="3" max="60" step="1"
-                                value="12" placeholder="12">
+                            <input class="input-field no-prefix" id="cuotas" type="number" min="3" max="60" step="1" value="12" placeholder="12">
                             <span class="input-suffix">meses</span>
                         </div>
-                        <div class="chips" id="chips-container"></div>
+                        <input class="plazo-slider" id="plazo-slider" type="range" min="0" step="1" value="0">
+                        <div class="plazo-slider-labels" id="plazo-slider-labels"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="tabs" id="tabs" role="tablist">
+            <!-- <div class="tabs" id="tabs" role="tablist">
                 <button class="tab active" data-filter="all" role="tab" aria-selected="true">Todas</button>
                 <button class="tab" data-filter="sin" role="tab" aria-selected="false">Sin intereses</button>
                 <button class="tab" data-filter="con" role="tab" aria-selected="false">Con intereses</button>
-            </div>
+            </div> -->
 
             <div class="tabs" id="tabs-costos" role="tablist">
                 <button class="tab active" data-filter-costos="all" role="tab" aria-selected="true">Todas</button>
-                <button class="tab" data-filter-costos="paciente" role="tab" aria-selected="false">Paciente</button>
-                <button class="tab" data-filter-costos="compartido" role="tab" aria-selected="false">Compartido</button>
-                <button class="tab" data-filter-costos="clinica" role="tab" aria-selected="false">Clínica</button>
+                <button class="tab" data-filter-costos="paciente" role="tab" aria-selected="false">Paciente asume costos</button>
+                <button class="tab" data-filter-costos="compartido" role="tab" aria-selected="false">Costos compartidos</button>
+                <button class="tab" data-filter-costos="clinica" role="tab" aria-selected="false">Clínica asume costos</button>
             </div>
 
-<!--             <div class="summary-bar" id="summary-bar" style="display:none">
+            <div class="tabs" id="tabs-apertura" role="tablist">
+                <button class="tab active" data-filter-apertura="all" role="tab" aria-selected="true">Cualquier apertura</button>
+                <button class="tab" data-filter-apertura="primera" role="tab" aria-selected="false">1ª cuota</button>
+                <button class="tab" data-filter-apertura="financiada" role="tab" aria-selected="false">Financiada</button>
+            </div>
+
+            <!--             <div class="summary-bar" id="summary-bar" style="display:none">
                 <div class="summary-item"><span class="summary-value" id="sum-cuota">—</span><span
                         class="summary-label">Mejor cuota/mes</span></div>
                 <div class="summary-item"><span class="summary-value" id="sum-opciones">—</span><span
@@ -80,6 +82,7 @@
                 <div class="summary-item"><span class="summary-value" id="sum-coste">—</span><span
                         class="summary-label">Menor coste clínica</span></div>
             </div> -->
+
             <div class="results-header">
                 <div>
                     <div class="results-title" id="results-title">Resultados</div>
@@ -87,8 +90,9 @@
                 </div>
                 <div class="sort-bar">
                     <span class="sort-label">Ordenar por:</span>
-                    <button class="sort-btn active" data-sort="cuota">Cuota paciente ↑</button>
+                    <button class="sort-btn active" data-sort="cuota">Cuota paciente</button>
                     <button class="sort-btn" data-sort="total">Total paciente</button>
+                    <button class="sort-btn" data-sort="descuento">Descuento</button>
                 </div>
             </div>
 
@@ -97,9 +101,7 @@
     </div>
 
     <script src="./tarifas.js"></script>
-
-    <script src="./app.js">
-    </script>
+    <script src="./app.js"></script>
 </body>
 
 </html>
