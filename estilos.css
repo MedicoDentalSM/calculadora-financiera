@@ -237,22 +237,22 @@ input {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
-    padding: var(--space-8);
+    padding: var(--space-4);
     box-shadow: var(--shadow-sm);
-    margin-bottom: var(--space-8)
+    margin-bottom: var(--space-4)
 }
 
 .inputs-title {
-    font-size: var(--text-lg);
+    font-size: var(--text-xs);
     font-weight: 700;
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-2);
     color: var(--color-text)
 }
 
 .inputs-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-6)
+    gap: var(--space-3)
 }
 
 @media(max-width:600px) {
@@ -283,8 +283,8 @@ input {
 
 .input-prefix {
     position: absolute;
-    left: var(--space-4);
-    font-size: var(--text-lg);
+    left: var(--space-2);
+    font-size: var(--text-sm);
     font-weight: 600;
     color: var(--color-text-muted);
     pointer-events: none
@@ -303,8 +303,8 @@ input {
     background: var(--color-bg);
     border: 2px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: var(--space-4) var(--space-4) var(--space-4) var(--space-10);
-    font-size: var(--text-xl);
+    padding: var(--space-1) var(--space-4) var(--space-1) var(--space-6);
+    font-size: var(--text-base);
     font-weight: 700;
     color: var(--color-text);
     transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
@@ -332,23 +332,30 @@ input {
     color: var(--color-text-faint)
 }
 
-.chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-top: var(--space-2)
+.plazo-slider {
+    width: 100%;
+    margin-top: var(--space-2);
+    accent-color: var(--color-primary);
+    cursor: pointer;
 }
 
-.chip {
-    padding: var(--space-1) var(--space-3);
-    border-radius: var(--radius-full);
-    font-size: var(--text-xs);
-    font-weight: 600;
-    border: 1px solid var(--color-border);
-    background: var(--color-surface-offset);
-    color: var(--color-text-muted);
-    cursor: pointer;
-    transition: all var(--transition-interactive)
+.plazo-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-1);
+}
+
+.plazo-slider-labels span {
+    font-size: 12px;
+    color: var(--color-text-faint);
+    font-weight: 500;
+    text-align: center;
+    flex: 1;
+}
+
+.plazo-slider-labels span.active {
+    color: var(--color-primary);
+    font-weight: 700;
 }
 
 .chip:hover {
@@ -731,4 +738,37 @@ input {
     color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em
+}
+
+.card-cuotas-bloque {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    background: var(--color-surface-offset);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.card-cuota-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+}
+
+.card-cuota-row--primera {
+    padding-top: var(--space-1);
+    border-top: 1px solid var(--color-divider);
+}
+
+.card-main-value--primera {
+    font-size: var(--text-x);
+    color: var(--color-primary);
+    opacity: 0.75;
+}
+
+.card-cuota-tag {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-weight: 500;
 }
