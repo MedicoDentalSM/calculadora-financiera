@@ -1,4 +1,3 @@
-// tarifas.js — Edita solo este archivo para actualizar tarifas.
 const TARIFAS = [
     // SOFINCO (min 200€, max 10.000€)
     { fin: "SOFINCO", oferta: "Oferta 1", tipo: "sin", plazo: 3, comAp: 0, costeCl: 2.50, tin: 0, minImp: 200, maxImp: 10000 },
