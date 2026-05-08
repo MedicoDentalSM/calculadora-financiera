@@ -26,7 +26,7 @@ function calcular(t, importe) {
 }
 
 // ── STATE ─────────────────────────────────────────────────────────
-let state = { importe: 3000, cuotas: 12, filtro: 'all', sort: 'cuota', cuotaMax: null };
+let state = { importe: 3000, cuotas: 12, filtro: 'all', filtroCostos: 'all', sort: 'cuota', cuotaMax: null };
 
 // ── CHIPS ─────────────────────────────────────────────────────────
 const PLAZOS_DISPONIBLES = [...new Set(TARIFAS.map(t => t.plazo))].sort((a, b) => a - b);
@@ -55,7 +55,7 @@ function fmtPct(n) { return n.toFixed(2) + '%'; }
 function renderResults() {
     const grid = document.getElementById('results-grid');
     // const sumBar = document.getElementById('summary-bar');
-    const { importe, cuotas, filtro, sort, cuotaMax } = state;
+    const { importe, cuotas, filtro, filtroCostos, sort, cuotaMax } = state;
 
     let filtered = TARIFAS.filter(t => {
         if (t.plazo !== cuotas) return false;
@@ -63,7 +63,12 @@ function renderResults() {
         if (filtro === 'con' && t.tipo !== 'con') return false;
         if (t.minImp !== undefined && importe < t.minImp) return false;
         if (t.maxImp !== undefined && importe > t.maxImp) return false;
-        if (t.costeCl !== 0) return false;  // ← solo coste clínica 0%
+
+        // Filtro de costos
+        if (filtroCostos === 'paciente' && t.costeCl !== 0) return false;
+        if (filtroCostos === 'compartido' && (t.comAp <= 0 || t.costeCl <= 0)) return false;
+        if (filtroCostos === 'clinica' && (t.comAp !== 0 || t.costeCl === 0)) return false;
+
         return true;
     });
 
@@ -75,7 +80,12 @@ function renderResults() {
     }
 
     const sortKey = sort === 'cuota' ? 'cuota' : sort === 'total' ? 'totalPaciente' : 'costeClinicaEur';
-    results.sort((a, b) => a[sortKey] - b[sortKey]);
+    results.sort((a, b) => {
+        if (a.costeClinicaEur !== b.costeClinicaEur) {
+            return a.costeClinicaEur - b.costeClinicaEur;
+        }
+        return a[sortKey] - b[sortKey];
+    });
 
     document.getElementById('results-title').textContent = `Opciones para ${importe.toLocaleString('es-ES')} € a ${cuotas} meses`;
     document.getElementById('results-count').textContent = results.length === 0 ? '' : `${results.length} opción${results.length !== 1 ? 'es' : ''} disponible${results.length !== 1 ? 's' : ''}`;
@@ -116,8 +126,7 @@ function renderResults() {
         // Bloque de apertura (solo si hay importe de apertura > 0)
         const aperturaBlock = r.aperturaEur > 0
             ? `<div class="card-apertura-box">
-               <div class="card-apertura-value">${fmt(r.aperturaEur)}</div>
-               <div class="card-apertura-label">${r.comApFinanciado ? 'apertura (en cuotas)' : '1ª cuota apertura'}</div>
+               <div class="card-apertura-label">${r.comApFinanciado ? 'Apertura financiada' : 'Apertura en 1ª cuota'}</div>
              </div>`
             : '';
 
@@ -136,9 +145,16 @@ function renderResults() {
        </div>`
             : '';
 
+        const descuentoStat = r.costeClinicaEur > 0
+            ? `<div class="stat">
+               <span class="stat-label">Descuento Clínica</span>
+               <span class="stat-value highlight-good">${fmt(r.costeClinicaEur)} (${fmtPct(r.costeCl)})</span>
+             </div>`
+            : '';
+
         const interesesStat = r.tin > 0
             ? `<div class="stat">
-               <span class="stat-label">Costo paciente (Intereses)</span>
+               <span class="stat-label">Coste paciente (Intereses)</span>
                <span class="stat-value highlight-good">${fmt(r.interesesTotal)}</span>
              </div>`
             : '';
@@ -164,10 +180,11 @@ function renderResults() {
           <div class="card-divider"></div>
           <div class="card-stats">
             <div class="stat">
-              <span class="stat-label">Total a pagar</span>
+              <span class="stat-label">Total a pagar del Paciente</span>
               <span class="stat-value">${fmt(r.totalPaciente)}</span>
             </div>
             ${costeClienteStat}
+            ${descuentoStat}
             ${interesesStat}
           </div>`;
         grid.appendChild(card);
@@ -189,6 +206,15 @@ document.querySelectorAll('.tab').forEach(btn => {
         document.querySelectorAll('.tab').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
         btn.classList.add('active'); btn.setAttribute('aria-selected', 'true');
         state.filtro = btn.dataset.filter;
+        renderResults();
+    });
+});
+
+document.querySelectorAll('[data-filter-costos]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-filter-costos]').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        btn.classList.add('active'); btn.setAttribute('aria-selected', 'true');
+        state.filtroCostos = btn.dataset.filterCostos;
         renderResults();
     });
 });
