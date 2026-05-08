@@ -26,7 +26,16 @@ function calcular(t, importe) {
 }
 
 // ── STATE ─────────────────────────────────────────────────────────
-let state = { importe: 3000, cuotas: 12, filtro: 'all', filtroCostos: 'all', filtroApertura: 'all', sort: 'cuota', cuotaMax: null };
+let state = {
+    importe: 3000,
+    cuotas: 12,
+    filtro: 'all',
+    filtroCostos: 'all',
+    filtroApertura: 'all',
+    filtroClinica: 'all',   // ← AÑADIDO
+    sort: 'cuota',
+    cuotaMax: null
+};
 
 // ── HELPER: comprueba si un plazo tiene resultados con los filtros activos ──
 function plazoTieneResultados(plazo) {
@@ -38,7 +47,8 @@ function plazoTieneResultados(plazo) {
         if (state.filtroCostos === 'compartido' && (t.comAp <= 0 || t.costeCl <= 0)) return false;
         if (state.filtroCostos === 'clinica' && (t.comAp !== 0 || t.costeCl === 0)) return false;
         if (state.filtroApertura === 'primera' && !(t.comApFinanciado === false && t.comAp > 0)) return false;
-        if (state.filtroApertura === 'financiada' && !t.comApFinanciado) return false;
+        if (state.filtroApertura === 'financiada' && (!t.comApFinanciado || t.comAp <= 0)) return false;
+        if (state.filtroClinica !== 'all' && t.clinica !== state.filtroClinica) return false; // ← AÑADIDO
         return true;
     });
 }
@@ -50,7 +60,6 @@ function renderChips() {
     const slider = document.getElementById('plazo-slider');
     const labelsEl = document.getElementById('plazo-slider-labels');
 
-    // Si el plazo actual quedó bloqueado, saltar al primero disponible
     if (!plazoTieneResultados(state.cuotas)) {
         const primero = PLAZOS_DISPONIBLES.find(p => plazoTieneResultados(p));
         if (primero) {
@@ -78,7 +87,6 @@ function renderChips() {
     slider.oninput = () => {
         const plazo = PLAZOS_DISPONIBLES[+slider.value];
         if (!plazoTieneResultados(plazo)) {
-            // Revertir slider al valor actual
             slider.value = PLAZOS_DISPONIBLES.indexOf(state.cuotas);
             return;
         }
@@ -96,7 +104,7 @@ function fmtPct(n) { return n.toFixed(2) + '%'; }
 // ── RENDER ────────────────────────────────────────────────────────
 function renderResults() {
     const grid = document.getElementById('results-grid');
-    const { importe, cuotas, filtro, filtroCostos, filtroApertura, sort, cuotaMax } = state;
+    const { importe, cuotas, filtro, filtroCostos, filtroApertura, filtroClinica, sort, cuotaMax } = state; // ← filtroClinica añadido
 
     let filtered = TARIFAS.filter(t => {
         if (t.plazo !== cuotas) return false;
@@ -108,7 +116,8 @@ function renderResults() {
         if (filtroCostos === 'compartido' && (t.comAp <= 0 || t.costeCl <= 0)) return false;
         if (filtroCostos === 'clinica' && (t.comAp !== 0 || t.costeCl === 0)) return false;
         if (filtroApertura === 'primera' && !(t.comApFinanciado === false && t.comAp > 0)) return false;
-        if (filtroApertura === 'financiada' && !t.comApFinanciado) return false;
+        if (filtroApertura === 'financiada' && (!t.comApFinanciado || t.comAp <= 0)) return false;
+        if (filtroClinica !== 'all' && t.clinica !== filtroClinica) return false; // ← AÑADIDO
         return true;
     });
 
@@ -188,7 +197,7 @@ function renderResults() {
         </div>`;
 
         const descuentoStat = `<div class="stat">
-               <span class="stat-label">Descuento Clínica</span>
+               <span class="stat-label">Coste asumido por la clínica</span>
                <span class="stat-value highlight-good">${fmt(r.costeClinicaEur)} (${fmtPct(r.costeCl)})</span>
              </div>`;
 
@@ -254,6 +263,13 @@ document.querySelectorAll('[data-filter-apertura]').forEach(btn => {
         renderChips();
         renderResults();
     });
+});
+
+// ── EVENTO SELECT CLÍNICA ─────────────────────────────────────────
+document.getElementById('clinica-select').addEventListener('change', e => {
+    state.filtroClinica = e.target.value;
+    renderChips();
+    renderResults();
 });
 
 document.querySelectorAll('.sort-btn').forEach(btn => {

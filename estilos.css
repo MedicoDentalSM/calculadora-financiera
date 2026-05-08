@@ -157,7 +157,6 @@ input {
 }
 
 @media(prefers-reduced-motion:reduce) {
-
     *,
     *::before,
     *::after {
@@ -166,12 +165,14 @@ input {
     }
 }
 
+/* ── APP LAYOUT ────────────────────────────────────────────────── */
 .app {
     min-height: 100dvh;
     display: flex;
     flex-direction: column
 }
 
+/* ── HEADER ────────────────────────────────────────────────────── */
 .header {
     background: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
@@ -180,9 +181,6 @@ input {
     align-items: center;
     justify-content: space-between;
     gap: var(--space-4);
-    position: sticky;
-    top: 0;
-    z-index: 10
 }
 
 .header-logo {
@@ -209,15 +207,87 @@ input {
     font-weight: 400
 }
 
+/* ── HEADER CONTROLS (select + theme toggle) ───────────────────── */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+/* ── CLINICA SELECT ────────────────────────────────────────────── */
+.clinica-select-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-surface-2);
+    border: 1.5px solid var(--color-border);
+    border-radius: 10px;
+    padding: 0 0.75rem 0 0.75rem;
+    height: 42px;
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s, box-shadow 0.18s;
+}
+
+.clinica-select-wrap:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-highlight);
+    background: var(--color-surface);
+}
+
+.clinica-select-wrap > svg:first-child {
+    color: var(--color-primary);
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.clinica-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 0 0.25rem;
+    min-width: 140px;
+    letter-spacing: -0.01em;
+}
+
+.clinica-select option {
+    font-weight: 500;
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+.select-chevron {
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    pointer-events: none;
+    width: 14px;
+    height: 14px;
+    transition: transform 0.18s;
+}
+
+.clinica-select-wrap:focus-within .select-chevron {
+    transform: rotate(180deg);
+    color: var(--color-primary);
+}
+
+/* ── THEME TOGGLE ──────────────────────────────────────────────── */
 .theme-toggle {
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-text-muted);
-    border: 1px solid var(--color-border)
+    border: 1.5px solid var(--color-border)
 }
 
 .theme-toggle:hover {
@@ -225,6 +295,7 @@ input {
     color: var(--color-text)
 }
 
+/* ── MAIN ──────────────────────────────────────────────────────── */
 .main {
     flex: 1;
     padding: var(--space-8) var(--space-6);
@@ -233,6 +304,7 @@ input {
     width: 100%
 }
 
+/* ── INPUTS CARD ───────────────────────────────────────────────── */
 .inputs-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -332,6 +404,7 @@ input {
     color: var(--color-text-faint)
 }
 
+/* ── SLIDER ────────────────────────────────────────────────────── */
 .plazo-slider {
     width: 100%;
     margin-top: var(--space-2);
@@ -358,6 +431,13 @@ input {
     font-weight: 700;
 }
 
+.plazo-slider-labels span.disabled {
+    color: var(--color-text-faint);
+    opacity: 0.4;
+    text-decoration: line-through;
+}
+
+/* ── CHIPS ─────────────────────────────────────────────────────── */
 .chip:hover {
     border-color: var(--color-primary);
     color: var(--color-primary);
@@ -370,6 +450,7 @@ input {
     color: var(--color-text-inverse)
 }
 
+/* ── RESULTS HEADER ────────────────────────────────────────────── */
 .results-header {
     display: flex;
     align-items: baseline;
@@ -389,6 +470,7 @@ input {
     color: var(--color-text-muted)
 }
 
+/* ── EMPTY STATE ───────────────────────────────────────────────── */
 .empty-state {
     text-align: center;
     padding: var(--space-16) var(--space-8);
@@ -413,6 +495,7 @@ input {
     margin-inline: auto
 }
 
+/* ── SORT BAR ──────────────────────────────────────────────────── */
 .sort-bar {
     display: flex;
     gap: var(--space-2);
@@ -450,12 +533,14 @@ input {
     margin-right: var(--space-2)
 }
 
+/* ── RESULTS GRID ──────────────────────────────────────────────── */
 .results-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
     gap: var(--space-4)
 }
 
+/* ── RESULT CARD ───────────────────────────────────────────────── */
 .result-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -464,13 +549,24 @@ input {
     box-shadow: var(--shadow-sm);
     transition: box-shadow var(--transition-interactive), transform var(--transition-interactive);
     position: relative;
-    overflow: hidden
+    overflow: hidden;
+    animation: fadeUp 220ms ease both
 }
 
 .result-card:hover {
     box-shadow: var(--shadow-md);
     transform: translateY(-2px)
 }
+
+.result-card:nth-child(1) { animation-delay: 0ms }
+.result-card:nth-child(2) { animation-delay: 40ms }
+.result-card:nth-child(3) { animation-delay: 80ms }
+.result-card:nth-child(4) { animation-delay: 120ms }
+.result-card:nth-child(5) { animation-delay: 160ms }
+.result-card:nth-child(6) { animation-delay: 200ms }
+.result-card:nth-child(7) { animation-delay: 240ms }
+.result-card:nth-child(8) { animation-delay: 280ms }
+.result-card:nth-child(9) { animation-delay: 320ms }
 
 .card-rank {
     position: absolute;
@@ -486,25 +582,10 @@ input {
     font-weight: 700
 }
 
-.rank-1 {
-    background: var(--color-gold-highlight);
-    color: var(--color-gold)
-}
-
-.rank-2 {
-    background: var(--color-primary-highlight);
-    color: var(--color-primary)
-}
-
-.rank-3 {
-    background: var(--color-success-highlight);
-    color: var(--color-success)
-}
-
-.rank-other {
-    background: var(--color-surface-offset);
-    color: var(--color-text-muted)
-}
+.rank-1 { background: var(--color-gold-highlight); color: var(--color-gold) }
+.rank-2 { background: var(--color-primary-highlight); color: var(--color-primary) }
+.rank-3 { background: var(--color-success-highlight); color: var(--color-success) }
+.rank-other { background: var(--color-surface-offset); color: var(--color-text-muted) }
 
 .card-badge {
     display: inline-flex;
@@ -517,15 +598,8 @@ input {
     margin-bottom: var(--space-3)
 }
 
-.badge-sin {
-    background: var(--color-success-highlight);
-    color: var(--color-success)
-}
-
-.badge-con {
-    background: var(--color-warning-highlight);
-    color: var(--color-warning)
-}
+.badge-sin { background: var(--color-success-highlight); color: var(--color-success) }
+.badge-con { background: var(--color-warning-highlight); color: var(--color-warning) }
 
 .card-title {
     font-size: var(--text-sm);
@@ -588,13 +662,8 @@ input {
     font-variant-numeric: tabular-nums lining-nums
 }
 
-.stat-value.highlight-bad {
-    color: var(--color-warning)
-}
-
-.stat-value.highlight-good {
-    color: var(--color-success)
-}
+.stat-value.highlight-bad { color: var(--color-warning) }
+.stat-value.highlight-good { color: var(--color-success) }
 
 .card-note {
     margin-top: var(--space-3);
@@ -619,6 +688,7 @@ input {
     text-transform: uppercase
 }
 
+/* ── TABS ──────────────────────────────────────────────────────── */
 .tabs {
     display: flex;
     gap: var(--space-1);
@@ -641,9 +711,7 @@ input {
     background: none
 }
 
-.tab:hover {
-    color: var(--color-text)
-}
+.tab:hover { color: var(--color-text) }
 
 .tab.active {
     background: var(--color-surface);
@@ -651,58 +719,7 @@ input {
     box-shadow: var(--shadow-sm)
 }
 
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px)
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0)
-    }
-}
-
-.result-card {
-    animation: fadeUp 220ms ease both
-}
-
-.result-card:nth-child(1) {
-    animation-delay: 0ms
-}
-
-.result-card:nth-child(2) {
-    animation-delay: 40ms
-}
-
-.result-card:nth-child(3) {
-    animation-delay: 80ms
-}
-
-.result-card:nth-child(4) {
-    animation-delay: 120ms
-}
-
-.result-card:nth-child(5) {
-    animation-delay: 160ms
-}
-
-.result-card:nth-child(6) {
-    animation-delay: 200ms
-}
-
-.result-card:nth-child(7) {
-    animation-delay: 240ms
-}
-
-.result-card:nth-child(8) {
-    animation-delay: 280ms
-}
-
-.result-card:nth-child(9) {
-    animation-delay: 320ms
-}
-
+/* ── SUMMARY BAR ───────────────────────────────────────────────── */
 .summary-bar {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -716,14 +733,10 @@ input {
 }
 
 @media(max-width:600px) {
-    .summary-bar {
-        grid-template-columns: 1fr
-    }
+    .summary-bar { grid-template-columns: 1fr }
 }
 
-.summary-item {
-    text-align: center
-}
+.summary-item { text-align: center }
 
 .summary-value {
     font-size: var(--text-lg);
@@ -740,6 +753,7 @@ input {
     letter-spacing: 0.05em
 }
 
+/* ── CARD CUOTAS BLOQUE ────────────────────────────────────────── */
 .card-cuotas-bloque {
     display: flex;
     flex-direction: column;
@@ -771,4 +785,10 @@ input {
     font-size: var(--text-xs);
     color: var(--color-text-muted);
     font-weight: 500;
+}
+
+/* ── ANIMATIONS ────────────────────────────────────────────────── */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px) }
+    to   { opacity: 1; transform: translateY(0) }
 }
