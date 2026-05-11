@@ -173,6 +173,62 @@ const TARIFAS = [
     { fin: "Unicaja", oferta: "Modalidad Q — 100% cliente", tipo: "sin", plazo: 48, comAp: 10.25, costeCl: 0, tin: 0, comApFinanciado: true, clinica: "general" },
     { fin: "Unicaja", oferta: "Modalidad Q — 100% cliente", tipo: "sin", plazo: 60, comAp: 12.75, costeCl: 0, tin: 0, comApFinanciado: true, clinica: "general" },
 
+    // ── SANTANDER (documento 2022) — Sin intereses ────────────────────────────────
+
+    // ZCR/ZCS... — 100% clínica (gastos cliente 0%)
+    { fin: "Santander", oferta: "Sin intereses (ZCR-ZIE) — 0% cliente", tipo: "sin", plazo: 3, comAp: 0, costeCl: 1.50, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZCR-ZIE) — 0% cliente", tipo: "sin", plazo: 6, comAp: 0, costeCl: 2.25, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZCR-ZIE) — 0% cliente", tipo: "sin", plazo: 10, comAp: 0, costeCl: 3.40, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZCR-ZIE) — 0% cliente", tipo: "sin", plazo: 12, comAp: 0, costeCl: 4.00, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZCR-ZIE) — 0% cliente", tipo: "sin", plazo: 18, comAp: 0, costeCl: 4.75, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZCR-ZIE) — 0% cliente", tipo: "sin", plazo: 24, comAp: 0, costeCl: 5.90, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZCR-ZIE) — 0% cliente", tipo: "sin", plazo: 36, comAp: 0, costeCl: 8.35, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZCR-ZIE) — 0% cliente", tipo: "sin", plazo: 48, comAp: 0, costeCl: 10.80, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+
+    // 1SL/1SM... — Compartido (gastos cliente + coste establecimiento)
+    { fin: "Santander", oferta: "Sin intereses (1SL-ZJT) — Compartido", tipo: "sin", plazo: 3, comAp: 1.00, costeCl: 0.50, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (1SL-ZJT) — Compartido", tipo: "sin", plazo: 6, comAp: 1.25, costeCl: 1.00, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (1SL-ZJT) — Compartido", tipo: "sin", plazo: 10, comAp: 2.00, costeCl: 1.40, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (1SL-ZJT) — Compartido", tipo: "sin", plazo: 12, comAp: 2.50, costeCl: 1.50, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (1SL-ZJT) — Compartido", tipo: "sin", plazo: 18, comAp: 3.00, costeCl: 1.75, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (1SL-ZJT) — Compartido", tipo: "sin", plazo: 24, comAp: 4.00, costeCl: 1.90, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (1SL-ZJT) — Compartido", tipo: "sin", plazo: 36, comAp: 6.00, costeCl: 2.35, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (1SL-ZJT) — Compartido", tipo: "sin", plazo: 48, comAp: 7.00, costeCl: 3.80, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+
+    // ZEI/ZEJ... — 100% cliente (coste establecimiento 0%)
+    { fin: "Santander", oferta: "Sin intereses (ZEI-ZEO) — 100% cliente", tipo: "sin", plazo: 3, comAp: 1.50, costeCl: 0, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZEI-ZEO) — 100% cliente", tipo: "sin", plazo: 6, comAp: 2.25, costeCl: 0, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZEI-ZEO) — 100% cliente", tipo: "sin", plazo: 10, comAp: 3.40, costeCl: 0, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZEI-ZEO) — 100% cliente", tipo: "sin", plazo: 12, comAp: 4.00, costeCl: 0, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZEI-ZEO) — 100% cliente", tipo: "sin", plazo: 18, comAp: 4.75, costeCl: 0, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZEI-ZEO) — 100% cliente", tipo: "sin", plazo: 24, comAp: 5.90, costeCl: 0, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZEI-ZEO) — 100% cliente", tipo: "sin", plazo: 36, comAp: 8.35, costeCl: 0, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Sin intereses (ZEI-ZEO) — 100% cliente", tipo: "sin", plazo: 48, comAp: 9.00, costeCl: 1.80, tin: 0, minImp: undefined, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+
+    // ── Con intereses WJR — TIN 11,20%, gastos cliente 0% (coef incluye todo) ────
+    { fin: "Santander", oferta: "Con intereses (WJR)", tipo: "con", plazo: 3, comAp: 0, costeCl: 0, tin: 0.339575, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJR)", tipo: "con", plazo: 6, comAp: 0, costeCl: 0, tin: 0.172153, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJR)", tipo: "con", plazo: 10, comAp: 0, costeCl: 0, tin: 0.105205, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJR)", tipo: "con", plazo: 12, comAp: 0, costeCl: 0, tin: 0.088475, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJR)", tipo: "con", plazo: 15, comAp: 0, costeCl: 0, tin: 0.071752, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJR)", tipo: "con", plazo: 18, comAp: 0, costeCl: 0, tin: 0.060611, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJR)", tipo: "con", plazo: 24, comAp: 0, costeCl: 0, tin: 0.046701, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJR)", tipo: "con", plazo: 36, comAp: 0, costeCl: 0, tin: 0.032834, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJR)", tipo: "con", plazo: 48, comAp: 0, costeCl: 0, tin: 0.025943, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJR)", tipo: "con", plazo: 60, comAp: 0, costeCl: 0, tin: 0.021842, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+
+    // ── Con intereses WJT — TIN 12,20%, gastos cliente 3% (coef incluye todo) ────
+    { fin: "Santander", oferta: "Con intereses (WJT)", tipo: "con", plazo: 3, comAp: 0, costeCl: 0, tin: 0.340134, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJT)", tipo: "con", plazo: 6, comAp: 0, costeCl: 0, tin: 0.172647, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJT)", tipo: "con", plazo: 10, comAp: 0, costeCl: 0, tin: 0.105646, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJT)", tipo: "con", plazo: 12, comAp: 0, costeCl: 0, tin: 0.088942, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJT)", tipo: "con", plazo: 15, comAp: 0, costeCl: 0, tin: 0.072217, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJT)", tipo: "con", plazo: 18, comAp: 0, costeCl: 0, tin: 0.061075, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJT)", tipo: "con", plazo: 24, comAp: 0, costeCl: 0, tin: 0.047167, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJT)", tipo: "con", plazo: 36, comAp: 0, costeCl: 0, tin: 0.033310, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJT)", tipo: "con", plazo: 48, comAp: 0, costeCl: 0, tin: 0.026432, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+    { fin: "Santander", oferta: "Con intereses (WJT)", tipo: "con", plazo: 60, comAp: 0, costeCl: 0, tin: 0.022346, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+
     // ─────────────────────────────────────────────────────────────────
     // VENTAJON · CAIXABANK — PRÉSTAMO GRATUITO (150€ - 30.000€)
     // DTO = costeCl (descuento clínica, financiado)
@@ -254,17 +310,14 @@ const TARIFAS = [
     { fin: "Santander", oferta: "Tarifa cliente", tipo: "sin", plazo: 24, comAp: 8.70, costeCl: 0, tin: 0, minImp: 720, comApFinanciado: true, clinica: "madrid" },
     { fin: "Santander", oferta: "Tarifa cliente", tipo: "sin", plazo: 36, comAp: 9.00, costeCl: 3.52, tin: 0, minImp: 1080, comApFinanciado: true, clinica: "madrid" },
 
-    // Con intereses — código 6CK: TIN 9.00%
-    { fin: "Santander", oferta: "Con intereses (6CK)", tipo: "con", plazo: 6, comAp: 0, costeCl: 0, tin: 9.00, minImp: 360, comApFinanciado: true, clinica: "madrid" },
-    { fin: "Santander", oferta: "Con intereses (6CK)", tipo: "con", plazo: 10, comAp: 0, costeCl: 0, tin: 9.00, minImp: 360, comApFinanciado: true, clinica: "madrid" },
-    { fin: "Santander", oferta: "Con intereses (6CK)", tipo: "con", plazo: 12, comAp: 0, costeCl: 0, tin: 9.00, minImp: 360, comApFinanciado: true, clinica: "madrid" },
-    { fin: "Santander", oferta: "Con intereses (6CK)", tipo: "con", plazo: 18, comAp: 0, costeCl: 0, tin: 9.00, minImp: 540, comApFinanciado: true, clinica: "madrid" },
-
-    // Con intereses — código 5PA: TIN 9.99%
-    { fin: "Santander", oferta: "Con intereses (5PA)", tipo: "con", plazo: 24, comAp: 2, costeCl: 0, tin: 9.99, minImp: 720, comApFinanciado: true, clinica: "madrid" },
-    { fin: "Santander", oferta: "Con intereses (5PA)", tipo: "con", plazo: 36, comAp: 2, costeCl: 0, tin: 9.99, minImp: 1080, comApFinanciado: true, clinica: "madrid" },
-    { fin: "Santander", oferta: "Con intereses (5PA)", tipo: "con", plazo: 48, comAp: 2, costeCl: 0, tin: 9.99, minImp: 1080, comApFinanciado: true, clinica: "madrid" },
-    { fin: "Santander", oferta: "Con intereses (5PA)", tipo: "con", plazo: 60, comAp: 2, costeCl: 0, tin: 9.99, minImp: 1080, comApFinanciado: true, clinica: "madrid" },
+    { fin: "Santander", oferta: "Con intereses (6CK)", tipo: "con", plazo: 6, comAp: 0, costeCl: 0, tin: 0.174179, minImp: 360, comApFinanciado: true, clinica: "madrid" },
+    { fin: "Santander", oferta: "Con intereses (6CK)", tipo: "con", plazo: 10, comAp: 0, costeCl: 0, tin: 0.106065, minImp: 360, comApFinanciado: true, clinica: "madrid" },
+    { fin: "Santander", oferta: "Con intereses (6CK)", tipo: "con", plazo: 12, comAp: 0, costeCl: 0, tin: 0.089041, minImp: 360, comApFinanciado: true, clinica: "madrid" },
+    { fin: "Santander", oferta: "Con intereses (6CK)", tipo: "con", plazo: 18, comAp: 0, costeCl: 0, tin: 0.061893, minImp: 540, comApFinanciado: true, clinica: "madrid" },
+    { fin: "Santander", oferta: "Con intereses (5PA)", tipo: "con", plazo: 24, comAp: 0, costeCl: 0, tin: 0.048875, minImp: 720, comApFinanciado: true, clinica: "madrid" },
+    { fin: "Santander", oferta: "Con intereses (5PA)", tipo: "con", plazo: 36, comAp: 0, costeCl: 0, tin: 0.034817, minImp: 1080, comApFinanciado: true, clinica: "madrid" },
+    { fin: "Santander", oferta: "Con intereses (5PA)", tipo: "con", plazo: 48, comAp: 0, costeCl: 0, tin: 0.028028, minImp: 1080, comApFinanciado: true, clinica: "madrid" },
+    { fin: "Santander", oferta: "Con intereses (5PA)", tipo: "con", plazo: 60, comAp: 0, costeCl: 0, tin: 0.023636, minImp: 1080, comApFinanciado: true, clinica: "madrid" },
 
     // ─────────────────────────────────────────────────────────────────
     // PEPPER

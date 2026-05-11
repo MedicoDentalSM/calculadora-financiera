@@ -15,11 +15,18 @@ function calcular(t, importe) {
             totalPaciente = importe * (1 + t.comAp / 100);
         }
     } else {
-        const im = t.tin / 100 / 12;
-        cuota = importe * im / (1 - Math.pow(1 + im, -t.plazo));
+        if (t.tin > 0 && t.tin < 1) {
+            // Coeficiente directo (Santander)
+            cuota = importe * t.tin;
+        } else {
+            // TIN en % (9.99, 6.95, 10.95...)
+            const im = t.tin / 100 / 12;
+            cuota = importe * im / (1 - Math.pow(1 + im, -t.plazo));
+        }
         primeraCuota = cuota;
         totalPaciente = cuota * t.plazo;
         aperturaEur = 0;
+        interesesTotal = totalPaciente - importe;
     }
     costeClinicaEur = importe * (t.costeCl / 100);
     return { cuota, primeraCuota, totalPaciente, costeClinicaEur, aperturaEur, interesesTotal: t.tin > 0 ? totalPaciente - importe : 0 };
@@ -150,11 +157,13 @@ function renderResults() {
         const rankClass = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : 'rank-other';
         const rankEmoji = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : (i + 1);
 
-        const subtitleExtra = r.tin > 0
-            ? ` · TIN ${r.tin}%`
-            : r.comAp > 0
-                ? ` · Apertura ${fmtPct(r.comAp)}`
-                : ' · Sin comisión cliente';
+        const subtitleExtra = r.tin > 0 && r.tin < 1
+            ? ` · Coef. ${r.tin}`
+            : r.tin >= 1
+                ? ` · TIN ${r.tin}%`
+                : r.comAp > 0
+                    ? ` · Apertura ${fmtPct(r.comAp)}`
+                    : ' · Sin comisión cliente';
 
         const hasPrimeraCuotaDif = !r.comApFinanciado && r.primeraCuota > r.cuota + 0.01;
         const hasAperturaProrrateada = r.comApFinanciado && r.comAp > 0;
