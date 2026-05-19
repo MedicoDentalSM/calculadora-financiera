@@ -1,6 +1,5 @@
 const TARIFAS = [
     // SOFINCO (min 200€, max 10.000€)
-    // SOFINCO (min 200€, max 10.000€)
     { fin: "SOFINCO", oferta: "Oferta 1", tipo: "sin", plazo: 3, comAp: 0, costeCl: 2.50, tin: 0, minImp: 200, maxImp: 10000, clinica: "general" },
     { fin: "SOFINCO", oferta: "Oferta 1", tipo: "sin", plazo: 6, comAp: 0, costeCl: 3.50, tin: 0, minImp: 200, maxImp: 10000, clinica: "general" },
     { fin: "SOFINCO", oferta: "Oferta 1", tipo: "sin", plazo: 10, comAp: 0, costeCl: 4.25, tin: 0, minImp: 200, maxImp: 10000, clinica: "general" },
@@ -228,6 +227,15 @@ const TARIFAS = [
     { fin: "Santander", oferta: "Con intereses (WJT)", tipo: "con", plazo: 36, comAp: 0, costeCl: 0, tin: 0.033310, maxImp: 24000, comApFinanciado: true, clinica: "general" },
     { fin: "Santander", oferta: "Con intereses (WJT)", tipo: "con", plazo: 48, comAp: 0, costeCl: 0, tin: 0.026432, maxImp: 24000, comApFinanciado: true, clinica: "general" },
     { fin: "Santander", oferta: "Con intereses (WJT)", tipo: "con", plazo: 60, comAp: 0, costeCl: 0, tin: 0.022346, maxImp: 24000, comApFinanciado: true, clinica: "general" },
+
+    { fin: "Codifis", oferta: "Dental Premium25 CAP 3%", tipo: "sin", plazo: 3, comAp: 3, costeCl: 0, tin: 0, maxImp: 30000, comApFinanciado: true, clinica: "general" },
+    { fin: "Codifis", oferta: "Dental Premium25 CAP 3%", tipo: "sin", plazo: 3, comAp: 3, costeCl: 0, tin: 0, maxImp: 30000, comApFinanciado: true, clinica: "general" },
+    { fin: "Codifis", oferta: "Dental Premium25 CAP 3%", tipo: "sin", plazo: 3, comAp: 3, costeCl: 0.50, tin: 0, maxImp: 30000, comApFinanciado: true, clinica: "general" },
+    { fin: "Codifis", oferta: "Dental Premium25 CAP 3%", tipo: "sin", plazo: 3, comAp: 3, costeCl: 1.00, tin: 0, maxImp: 30000, comApFinanciado: true, clinica: "general" },
+    { fin: "Codifis", oferta: "Dental Premium25 CAP 3%", tipo: "sin", plazo: 3, comAp: 3, costeCl: 3.00, tin: 0, maxImp: 30000, comApFinanciado: true, clinica: "general" },
+    { fin: "Codifis", oferta: "Dental Premium25 CAP 3%", tipo: "sin", plazo: 3, comAp: 3, costeCl: 4.00, tin: 0, maxImp: 30000, comApFinanciado: true, clinica: "general" },
+    
+    
 
     // ─────────────────────────────────────────────────────────────────
     // VENTAJON · CAIXABANK — PRÉSTAMO GRATUITO (150€ - 30.000€)
