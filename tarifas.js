@@ -123,18 +123,19 @@ const TARIFAS = [
 
 
     // KUTXABANK — Corporación Odontólogos SM (clinica: "general")
-    { fin: "Kutxabank", oferta: "Tarifa estándar", tipo: "sin", plazo: 3, comAp: 1.00, costeCl: 0, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: false, clinica: "general" },
-    { fin: "Kutxabank", oferta: "Tarifa estándar", tipo: "sin", plazo: 6, comAp: 1.50, costeCl: 0, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: false, clinica: "general" },
-    { fin: "Kutxabank", oferta: "Tarifa estándar", tipo: "sin", plazo: 9, comAp: 2.00, costeCl: 0, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: false, clinica: "general" },
-    { fin: "Kutxabank", oferta: "Tarifa bonificada", tipo: "sin", plazo: 9, comAp: 1.75, costeCl: 0.29, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: false, clinica: "general" },
-    { fin: "Kutxabank", oferta: "Tarifa estándar", tipo: "sin", plazo: 12, comAp: 2.50, costeCl: 0, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
-    { fin: "Kutxabank", oferta: "Tarifa bonificada", tipo: "sin", plazo: 12, comAp: 2.00, costeCl: 0.27, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
-    { fin: "Kutxabank", oferta: "Tarifa estándar", tipo: "sin", plazo: 18, comAp: 3.50, costeCl: 0, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
-    { fin: "Kutxabank", oferta: "Tarifa bonificada", tipo: "sin", plazo: 18, comAp: 2.25, costeCl: 0.98, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
-    { fin: "Kutxabank", oferta: "Tarifa estándar", tipo: "sin", plazo: 24, comAp: 4.50, costeCl: 0, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
-    { fin: "Kutxabank", oferta: "Tarifa bonificada", tipo: "sin", plazo: 24, comAp: 3.25, costeCl: 1.29, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
-    { fin: "Kutxabank", oferta: "Tarifa bonificada", tipo: "sin", plazo: 36, comAp: 3.25, costeCl: 1.90, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
-    { fin: "Kutxabank", oferta: "Tarifa bonificada", tipo: "sin", plazo: 48, comAp: 4.00, costeCl: 2.51, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
+    { fin: "Cajasur", oferta: "Tarifa estándar", tipo: "sin", plazo: 3, comAp: 1.00, costeCl: 0, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: false, clinica: "general" },
+    { fin: "Cajasur", oferta: "Tarifa estándar", tipo: "sin", plazo: 6, comAp: 2.00, costeCl: 0, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: false, clinica: "general" },
+    { fin: "Cajasur", oferta: "Tarifa bonificada", tipo: "sin", plazo: 6, comAp: 1.50, costeCl: 0.25, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: false, clinica: "general" },
+    { fin: "Cajasur", oferta: "Tarifa estándar", tipo: "sin", plazo: 9, comAp: 2.00, costeCl: 0, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: false, clinica: "general" },
+    { fin: "Cajasur", oferta: "Tarifa bonificada", tipo: "sin", plazo: 9, comAp: 1.75, costeCl: 0.29, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: false, clinica: "general" },
+    { fin: "Cajasur", oferta: "Tarifa estándar", tipo: "sin", plazo: 12, comAp: 2.50, costeCl: 0, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
+    { fin: "Cajasur", oferta: "Tarifa bonificada", tipo: "sin", plazo: 12, comAp: 2.00, costeCl: 0.27, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
+    { fin: "Cajasur", oferta: "Tarifa estándar", tipo: "sin", plazo: 18, comAp: 3.50, costeCl: 0, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
+    { fin: "Cajasur", oferta: "Tarifa bonificada", tipo: "sin", plazo: 18, comAp: 2.25, costeCl: 0.98, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
+    { fin: "Cajasur", oferta: "Tarifa estándar", tipo: "sin", plazo: 24, comAp: 4.50, costeCl: 0, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
+    { fin: "Cajasur", oferta: "Tarifa bonificada", tipo: "sin", plazo: 24, comAp: 3.25, costeCl: 1.29, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
+    { fin: "Cajasur", oferta: "Tarifa bonificada", tipo: "sin", plazo: 36, comAp: 3.25, costeCl: 1.90, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica: "general" },
+    { fin: "Cajasur", oferta: "Tarifa bonificada", tipo: "sin", plazo: 48, comAp: 4.00, costeCl: 2.51, tin: 0, minImp: undefined, maxImp: undefined, comApFinanciado: true, clinica:"general" },
 
 
     // Unicaja — Campaña Feb 2020 (clinica: "general")
